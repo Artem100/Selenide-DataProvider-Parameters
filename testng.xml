@@ -2,6 +2,7 @@
 
 <suite name="TestSuite">
     <test name="Test">
+        <parameter name="browser" value="firefox"/>
         <classes>
             <class name="tests.SomeTests"/>
         </classes>

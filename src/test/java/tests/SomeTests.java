@@ -5,6 +5,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.Cookie;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
 import pages.LoginPageJira;
@@ -19,10 +20,11 @@ public class SomeTests {
     private static DashboardPage dashboardPage;
 
     @BeforeSuite
+    @Parameters("browser")
     public void setupSuite(){
         loginPage = new LoginPageJira();
         dashboardPage = new DashboardPage();
-        Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
+        //Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
         loginPage.loginToJiraSite();
         loginPage.enterLogin(ConfigProperties.getTestProperty("LoginWebinar5"));
         loginPage.enterPassword(ConfigProperties.getTestProperty("PasswordWebinar5"));
@@ -33,14 +35,16 @@ public class SomeTests {
     }
 
     @BeforeMethod
+    @Parameters("browser")
     public void setupTest(){
-        Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
+        //Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
         open(ConfigProperties.getTestProperty("jiraURL"));
         WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("JSESSIONID", loginPage.jSessionCookies));
         dashboardPage.navigateToProfile();
     }
 
     @Test
+    @Parameters("browser")
     public void firstTest(){
         System.out.println("Hi!");
     }
