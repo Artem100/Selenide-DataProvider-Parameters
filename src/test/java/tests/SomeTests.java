@@ -22,9 +22,9 @@ public class SomeTests {
     @BeforeSuite
     @Parameters("browser")
     public void setupSuite(){
+        Configuration.browser="chrome";
         loginPage = new LoginPageJira();
         dashboardPage = new DashboardPage();
-        //Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
         loginPage.loginToJiraSite();
         loginPage.enterLogin(ConfigProperties.getTestProperty("LoginWebinar5"));
         loginPage.enterPassword(ConfigProperties.getTestProperty("PasswordWebinar5"));
@@ -37,7 +37,6 @@ public class SomeTests {
     @BeforeMethod
     @Parameters("browser")
     public void setupTest(){
-        //Configuration.browser = ConfigProperties.getTestProperty("useBrowser");
         open(ConfigProperties.getTestProperty("jiraURL"));
         WebDriverRunner.getWebDriver().manage().addCookie(new Cookie("JSESSIONID", loginPage.jSessionCookies));
         dashboardPage.navigateToProfile();

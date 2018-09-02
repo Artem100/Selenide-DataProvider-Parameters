@@ -11,16 +11,16 @@ import static com.codeborne.selenide.Selenide.title;
 public class LoginPageJira {
     public static String jSessionCookies = "";
 
-    public void enterLogin(String login){
-        $(By.id("login-form-username")).sendKeys(login);
-    }
+    //public void enterLogin(String login){$(By.id("login-form-username")).sendKeys(login);}
 
-    public void enterPassword(String password){
-        $(By.id("login-form-password")).setValue(password);
-    }
+    public void enterLogin(String login){$(By.id("login-form-username")).setValue("");}
+
+    //public void enterPassword(String password){$(By.id("login-form-password")).setValue(password);}
+    public void enterPassword(String password){$(By.id("login-form-password")).clear();
+        $(By.id("login-form-password")).sendKeys();}
 
     public void clickSubmitButton(){
-        $(By.id("login-form-submit")).click();
+        $(By.id("login")).click();
     }
 
     public boolean atRequiredPage() //проверяет, что мы на dashboardPage.
