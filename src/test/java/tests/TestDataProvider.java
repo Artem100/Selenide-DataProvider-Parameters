@@ -34,7 +34,8 @@ public class TestDataProvider {
         return data;
     }
 
-    @Test(dataProvider = "TestData")
+    // Нe рабочий тeст
+    @Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class)
     public void providerLogin(String username, String password){
         loginPage.enterLogin(username);
         loginPage.enterPassword(password);
@@ -42,6 +43,7 @@ public class TestDataProvider {
         //loginPage.atRequiredPage();
     }
 
+    // Рабочий тeст
     @Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class)
     public void providerLogin2(String username, String password){
         $(By.id("login-form-username")).setValue(username);

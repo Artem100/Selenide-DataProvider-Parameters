@@ -11,13 +11,12 @@ import static com.codeborne.selenide.Selenide.title;
 public class LoginPageJira {
     public static String jSessionCookies = "";
 
-    //public void enterLogin(String login){$(By.id("login-form-username")).sendKeys(login);}
+    public void enterLogin(String login){
+        $(By.id("login-form-username")).setValue(login);}
 
-    public void enterLogin(String login){$(By.id("login-form-username")).setValue("");}
-
-    //public void enterPassword(String password){$(By.id("login-form-password")).setValue(password);}
-    public void enterPassword(String password){$(By.id("login-form-password")).clear();
-        $(By.id("login-form-password")).sendKeys();}
+    public void enterPassword(String password){
+        $(By.id("login-form-password")).clear();
+        $(By.id("login-form-password")).sendKeys(password);}
 
     public void clickSubmitButton(){
         $(By.id("login")).click();
@@ -29,6 +28,6 @@ public class LoginPageJira {
     }
 
     public void loginToJiraSite(){
-        open(ConfigProperties.getTestProperty("jiraURL") + "/login.jsp");
+        open(ConfigProperties.getTestProperty("jiraURL"));
     }
 }
