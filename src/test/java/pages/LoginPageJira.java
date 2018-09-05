@@ -22,7 +22,7 @@ public class LoginPageJira {
         $(By.id("login")).click();
     }
 
-    public boolean atRequiredPage() //проверяет, что мы на dashboardPage.
+    public boolean atRequiredPage()
     { Assert.assertEquals(title(), "System Dashboard - Hillel IT School JIRA");
         return true;
     }

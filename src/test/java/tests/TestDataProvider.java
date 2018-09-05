@@ -34,20 +34,13 @@ public class TestDataProvider {
         return data;
     }
 
-    // Нe рабочий тeст
-    @Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class)
+    //@Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class) - класс с данными для DataProvider
+    @Test(dataProvider = "TestData")
     public void providerLogin(String username, String password){
         loginPage.enterLogin(username);
         loginPage.enterPassword(password);
         loginPage.clickSubmitButton();
-        //loginPage.atRequiredPage();
+        loginPage.atRequiredPage();
     }
 
-    // Рабочий тeст
-    @Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class)
-    public void providerLogin2(String username, String password){
-        $(By.id("login-form-username")).setValue(username);
-        $(By.id("login-form-password")).sendKeys(password);
-        $(By.id("login")).click();
-    }
 }
