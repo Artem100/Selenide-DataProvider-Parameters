@@ -1,2 +1,2 @@
 # Selenide-Maven-TestNg
-Clean project
+In this repository I use the DataProvider and Parameters in my tests.
