@@ -30,4 +30,8 @@ public class LoginPageJira {
     public void loginToJiraSite(){
         open(ConfigProperties.getTestProperty("jiraURL"));
     }
+
+    public void errorMessage(){
+        Assert.assertTrue($(By.id("usernameerror")).isDisplayed());
+    }
 }

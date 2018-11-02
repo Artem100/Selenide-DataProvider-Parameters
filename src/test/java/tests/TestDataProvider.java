@@ -28,19 +28,19 @@ public class TestDataProvider {
         data[1][0]="webinar3";
         data[1][1]="webinar3";
 
-        data[2][0]="webinar5";
-        data[2][1]="webinar5";
+        data[2][0]="webinar51";
+        data[2][1]="webinar51";
 
         return data;
     }
 
     //@Test(dataProvider = "TestData2", dataProviderClass = ClassDataProvider.class) - класс с данными для DataProvider
     @Test(dataProvider = "TestData")
-    public void providerLogin(String username, String password){
+    public void providerLoginNegative(String username, String password){
         loginPage.enterLogin(username);
         loginPage.enterPassword(password);
         loginPage.clickSubmitButton();
-        loginPage.atRequiredPage();
+        loginPage.errorMessage();
     }
 
 }
